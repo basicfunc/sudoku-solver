@@ -99,14 +99,27 @@ class SudokuSolver:
 
 # Prints it in a human-readable format.
 def print_solution(puzzle):
-    # Print the solved puzzle in a human-readable format
+    # Print the solved puzzle in a visually appealing format
     if puzzle is None:
         print("No solution exists for the given Sudoku puzzle.")
         return
     
-    print("Sudoku Solved:")
-    for row in puzzle:
-        print(row)
+    print("Sudoku Solved:\n")
+    for i, row in enumerate(puzzle):
+        # Print horizontal lines
+        if i % 3 == 0 and i != 0:
+            print("- - - - - - - - - - - -")
+        
+        for j, num in enumerate(row):
+            # Print vertical lines
+            if j % 3 == 0 and j != 0:
+                print("|", end=" ")
+            
+            # Print the number
+            print(num, end=" ")
+        
+        print("")  # Move to the next line
+    print("")  # Move to the next line
 
 if __name__ == '__main__':
     # Create a SudokuSolver instance and solve the puzzle in the input image
